@@ -3,5 +3,5 @@ build
 node_modules
 .idea
 maps.iml
-
+mapstats.iml
 .~lock.ttr00012.csv#
