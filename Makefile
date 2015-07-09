@@ -7,8 +7,7 @@ build/ne_10m_admin_0_map_subunits.shp: build/ne_10m_admin_0_map_subunits.zip
 
 build/subunits.json: build/ne_10m_admin_0_map_subunits.shp
 	rm -f @1
-	ogr2ogr -f GeoJSON -where "ADM0_A3 in (
-	'AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR')" subunits.json ne_10m_admin_0_map_subunits.shp
+	ogr2ogr -f GeoJSON -where "ADM0_A3 in ('AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR')" $@ $(dir $@)ne_10m_admin_0_map_subunits.shp
 
 build/eu.json: build/subunits.json
 	node_modules/topojson/bin/topojson -o $@ --id-property SU_A3 --properties name=NAME -- $(dir $@)subunits.json
