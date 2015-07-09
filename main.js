@@ -103,6 +103,6 @@ function drawMap(year) {
 
 
 
-function setYear(e){
+function setYear(){
     drawMap($('#yearSlider').attr('data-slider'));
 }
