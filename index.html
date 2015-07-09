@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css"
       href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"> </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/vendor/modernizr.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
@@ -31,29 +31,36 @@
     <h1>Passengers carried in Europe in the years 2004 - 2014</h1>
 
     <div class="panel column large-10">
-<p>Passengers carried are:
-    <ul>
-    <li>all passengers on a particular flight (with one flight number) counted once only and not repeatedly on each individual stage of that flight.</li>
-    <li>Are all revenue and non-revenue passengers whose journey begins or terminates at the reporting airport and transfer passengers joining or leaving the flight at the reporting airport.</li>
-    <li>Excludes direct transit passengers.</li>
-</ul>
-</p>
 
-            <div class="small-10 medium-11 columns">
-                <div id='yearSlider' class="range-slider round" data-slider="2014"
-                     data-options="start: 2004; end: 2014; display_selector: #sliderOutput;">
-                    <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                    <span class="range-slider-active-segment"></span>
-                </div>
+        <div class="large-12 columns">
+            <label><b>Select Year:</b>
+                <select  id="choosedYear" onchange="setYear(this);">
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                </select>
+            </label>
+        </div>
 
-            <div class="label small-2 medium-1 columns">
-                <span id="sliderOutput"></span>
-            </div>
-</div>
-<p class="map" id="map">
+        <p class="map" id="map">
 
         <p class="label secondary round">Data Source: <a href="http://ec.europa.eu/eurostat">eurostat</a></p>
 
+        <p>Passengers carried are:
+        <ul>
+            <li>all passengers on a particular flight (with one flight number) counted once only and not repeatedly on each individual stage of that flight.</li>
+            <li>Are all revenue and non-revenue passengers whose journey begins or terminates at the reporting airport and transfer passengers joining or leaving the flight at the reporting airport.</li>
+            <li>Excludes direct transit passengers.</li>
+        </ul>
+        </p>
     </div>
 
     <div class="column large-1 icon-bar large-vertical one-up">

@@ -41,7 +41,7 @@ function drawMap(year) {
             })
             .attr('d', path);
 
-        // Add Labels
+        // Add Label
         svg.selectAll('.subunit-label')
             .data(topojson.feature(eu, eu.objects.subunits).features)
             .enter().append('text')
@@ -103,6 +103,6 @@ function drawMap(year) {
 
 
 
-function setYear(){
-    drawMap($('#yearSlider').attr('data-slider'));
+function setYear(sel){
+    drawMap(sel.value);
 }
