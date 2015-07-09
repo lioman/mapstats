@@ -1,0 +1,101 @@
+<DOCTYPE html>
+    <meta charset="utf-8">
+    <style>
+        .subunit.AUT {fill: #ddccdd; }
+        .subunit.BWR {fill: #b0c3dd; }
+        .subunit.BFR {fill: #b0c3dd; }
+        .subunit.BCR {fill: #b0c3dd; }
+        .subunit.BGR {fill: #bdd3dd; }
+        .subunit.CYP {fill: #afddc9; }
+        .subunit.CZE {fill: #b0ddb9; }
+        .subunit.DNK {fill: #b3dd95; }
+        .subunit.DNB {fill: #b3dd95; }
+        .subunit.EST {fill: #cfdd89; }
+        .subunit.FIN {fill: #ddd079; }
+        .subunit.FXX {fill: #ddad7e; }
+        .subunit.FXC {fill: #ddad7e; }
+        .subunit.DEU {fill: #dd8973; }
+        .subunit.GRC {fill: #dd6b68; }
+        .subunit.HUN {fill: #dd87a4; }
+        .subunit.IRL {fill: #dd65b1; }
+        .subunit.ITX {fill: #cf83dd; }
+        .subunit.ITY {fill: #cf83dd; }
+        .subunit.ITD {fill: #cf83dd; }
+        .subunit.LVA {fill: #dd65b1; }
+        .subunit.LTU {fill: #a8c5dd; }
+        .subunit.LUX {fill: #40d6dd; }
+        .subunit.MLT {fill: #6ddda1; }
+        .subunit.NLX {fill: #dd3f26; }
+        .subunit.POL {fill: #a52edd; }
+        .subunit.PRX {fill: #4cddb5; }
+        .subunit.ROU {fill: #24dd8d; }
+        .subunit.SVK {fill: #60dd56; }
+        .subunit.SVN {fill: #d261dd; }
+        .subunit.ESX {fill: #dd3561; }
+        .subunit.ESC {fill: #dd3561; }
+        .subunit.ESB {fill: #dd3561; }
+        .subunit.ESI {fill: #dd3561; }
+        .subunit.SWE {fill: #1bdd7b; }
+        .subunit.ENG {fill: #1c3add; }
+        .subunit.NIR {fill: #1c3add; }
+        .subunit.WLS {fill: #1c3add; }
+        .subunit.SCT {fill: #1c3add; }
+
+        .subunit-label {
+            fill: #777;
+            fill-opacity: .5;
+            font-size: 10px;
+            font-weight: 300;
+            text-anchor: middle;
+        }
+    </style>
+    <body>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script>
+        var width = 2000,
+            height = 1500;
+
+        var projection = d3.geo.mercator()
+                .center([50.117286, 9.247768])
+                .scale(500)
+                .translate([width / 2, height / 2]);
+
+        var path = d3.geo.path()
+                .projection(projection)
+                .pointRadius(2);
+
+        var svg = d3.select("body").append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+        d3.json("build/eu.json", function (error, eu) {
+            console.log(eu);
+            if (error) return console.error(error);
+
+            svg.append("path")
+                    .datum(topojson.feature(eu, eu.objects.subunits))
+                    .attr("d", path);
+
+            //add classes
+            svg.selectAll(".subunit")
+                    .data(topojson.feature(eu, eu.objects.subunits).features)
+                    .enter().append("path")
+                    .attr("class", function(d) { return "subunit " + d.id; })
+                    .attr("d", path);
+
+            // Add Labels
+            svg.selectAll(".subunit-label")
+                    .data(topojson.feature(eu, eu.objects.subunits).features)
+                    .enter().append("text")
+                    .attr("class", function(d) { return "subunit-label " + d.id; })
+                    .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+                    .attr("dy", ".35em")
+                    .text(function(d) { return d.properties.name; });
+
+
+        });
+
+
+    </script>
+
