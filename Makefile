@@ -7,7 +7,7 @@ build/ne_10m_admin_0_countries.shp: build/ne_10m_admin_0_countries.zip
 	
 build/subunits.json: build/ne_10m_admin_0_countries.shp
 	rm -f $@
-	ogr2ogr -f GeoJSON -clipsrc -14.5 34.6 48.8 71.7  -where "ADM0_A3 in ('AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR', 'CHE', 'CRO', 'NOR', 'BLR')" $@ $<
+	ogr2ogr -f GeoJSON -clipsrc -14.5 34.6 48.8 71.7  -where "ADM0_A3 in ('AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR', 'CHE', 'CRO', 'NOR', 'ALB', 'MNE', 'MKD', 'SVN', 'SRB', 'HRV', 'RSK', 'BIH')" $@ $<
 
 build/europe.json: build/subunits.json
 	rm -f $@

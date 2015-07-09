@@ -26,7 +26,7 @@
 </div>
 
 <div class="row">
-    <h1>Passengers carried in Europe in 2013</h1>
+    <h1>Passengers carried in Europe in the years 2004 - 2014</h1>
 
     <div class="panel column large-10">
         <p>Passengers carried are:
@@ -41,20 +41,21 @@
         </ul>
         </p>
 
-        <div class="small-10 medium-11 columns">
-            <div id='yearSlider' class="range-slider round" data-slider="2014"
-                 data-options="start: 2004; end: 2014; display_selector: #sliderOutput;">
-                <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                <span class="range-slider-active-segment"></span>
+            <div class="small-10 medium-11 columns">
+                <div id='yearSlider' class="range-slider round" data-slider="2014"
+                     data-options="start: 2004; end: 2014; display_selector: #sliderOutput;">
+                    <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                    <span class="range-slider-active-segment"></span>
+                </div>
+
+            <div class="label small-2 medium-1 columns">
+                <span id="sliderOutput"></span>
             </div>
-        </div>
-        <div class="small-2 medium-1 columns">
-            <span id="sliderOutput"></span>
-        </div>
+</div>
+            <p class="map" id="map">
 
-        <p class="map" id="map">
+            <p class="label secondary round">Data Source: <a href="http://ec.europa.eu/eurostat">eurostat</a></p>
 
-        <p class="label secondary round">Data Source: <a href="http://ec.europa.eu/eurostat">eurostat</a></p>
     </div>
 
     <div class="column large-1 icon-bar large-vertical one-up">
@@ -68,9 +69,7 @@
 <script>
     $(document).ready(function () {
         $(document).foundation();
-
         drawMap(2014);
-
 
         $('[data-slider]').on('change.fndtn.slider', function (e) {
             setYear(e);

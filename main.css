@@ -110,6 +110,19 @@
     fill: rgba(130, 221, 167, 0.52);
 }
 
+.subunit.HR {
+    fill: rgba(130, 221, 167, 0.52);
+}
+
+.subunit.YF,
+.subunit.BA,
+.subunit.MK,
+.subunit.ME,
+.subunit.AL
+{
+    fill: rgba(143, 143, 143, 0.42);
+}
+
 .subunit-label {
     fill: #000000;
     fill-opacity: .9;
