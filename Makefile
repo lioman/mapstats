@@ -7,7 +7,7 @@ build/ne_10m_admin_0_countries.shp: build/ne_10m_admin_0_countries.zip
 	
 build/subunits.json: build/ne_10m_admin_0_countries.shp
 	rm -f $@
-	ogr2ogr -f GeoJSON -clipsrc -14.5 34.6 48.8 71.7  -where "ADM0_A3 in ('AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR', 'CHE', 'CRO')" $@ $<
+	ogr2ogr -f GeoJSON -clipsrc -14.5 34.6 48.8 71.7  -where "ADM0_A3 in ('AUT', 'BEL', 'BGR','CYP', 'CZE', 'DNK', 'EST',	'FIN', 'FRA', 'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD', 'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE', 'GBR', 'CHE', 'CRO', 'NOR', 'BLR')" $@ $<
 
 build/europe.json: build/subunits.json
 	rm -f $@
@@ -15,4 +15,4 @@ build/europe.json: build/subunits.json
 
 build/eu.json: build/europe.json
 	rm -f $@
-	node_modules/topojson/bin/topojson -e ttr00012.csv -id-property='id,id' -p name=name -p pax2013=+pax2013 -o $@ -- $< 
+	node_modules/topojson/bin/topojson -e ttr00012.csv -id-property='id,id' -p name=name -p pax2014=+pax2014 -p pax2013=+pax2013 -p pax2012=+pax2012 -p pax2011=+pax2011 -p pax2010=+pax2010 -p pax2009=+pax2009 -p pax2008=+pax2008 -p pax2007=+pax2007 -p pax2006=+pax2006 -p pax2005=+pax2005 -p pax2004=+pax2004 -o $@ -- $<
