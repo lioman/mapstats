@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="main.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="main.js"></script>
+<title>Drawing a map with D3.js and show data on it</title>
+<h1>Passengers carried in Europe in 2013</h1>
+<p>Passengers carried are:
+    <ul>
+    <li>all passengers on a particular flight (with one flight number) counted once only and not repeatedly on each individual stage of that flight.</li>
+    <li>Are all revenue and non-revenue passengers whose journey begins or terminates at the reporting airport and transfer passengers joining or leaving the flight at the reporting airport.</li>
+    <li>Excludes direct transit passengers.</li>
+</ul>
+</p>
+<p class="map" id="map">
+<p style="font-size:smaller;color:#777;"><a href="http://ec.europa.eu/eurostat">Data Source: eurostat</a></p>
+<script>drawMap();</script>
+</body>
