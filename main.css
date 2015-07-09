@@ -1,0 +1,148 @@
+.subunit.AT {
+    fill: #ddccdd;
+}
+
+.subunit.BE {
+    fill: #b0c3dd;
+}
+
+.subunit.BG {
+    fill: #bdd3dd;
+}
+
+.subunit.CY {
+    fill: #afddc9;
+}
+
+.subunit.CZ {
+    fill: #b0ddb9;
+}
+
+.subunit.DK {
+    fill: #b3dd95;
+}
+
+.subunit.ES {
+    fill: #cfdd89;
+}
+
+.subunit.FI {
+    fill: #ddd079;
+}
+
+.subunit.FR {
+    fill: #ddad7e;
+}
+
+.subunit.DE {
+    fill: #dd8973;
+}
+
+.subunit.GR {
+    fill: #dd6b68;
+}
+
+.subunit.HU {
+    fill: #dd87a4;
+}
+
+.subunit.IE {
+    fill: #dd65b1;
+}
+
+.subunit.IT {
+    fill: #cf83dd;
+}
+
+.subunit.LV {
+    fill: #dd65b1;
+}
+
+.subunit.LT {
+    fill: #a8c5dd;
+}
+
+.subunit.LU {
+    fill: #40d6dd;
+}
+
+.subunit.MT {
+    fill: #6ddda1;
+}
+
+.subunit.NL {
+    fill: #dd3f26;
+}
+
+.subunit.PL {
+    fill: #a52edd;
+}
+
+.subunit.PT {
+    fill: #4cddb5;
+}
+
+.subunit.RO {
+    fill: #24dd8d;
+}
+
+.subunit.SK {
+    fill: #60dd56;
+}
+
+.subunit.SI {
+    fill: #d261dd;
+}
+
+.subunit.EE {
+    fill: #dd3561;
+}
+
+.subunit.SE {
+    fill: #1bdd7b;
+}
+
+.subunit.GB {
+    fill: #1c3add;
+}
+
+.subunit.CH {
+    fill: rgba(130, 221, 167, 0.52);
+}
+
+.subunit-label {
+    fill: #000000;
+    fill-opacity: .9;
+    font-size: 10px;
+    font-weight: 300;
+    text-anchor: middle;
+}
+
+
+
+.bubble {
+    fill-opacity: .6;
+    stroke: #fff;
+    stroke-width: .5px;
+    fill: darkorange;
+}
+
+.bubbletext {
+    background-color: #cccccc;
+}
+
+.bubble circle:hover {
+    stroke: black;
+    stroke-width: .5px;
+}
+
+.legend circle {
+    fill: none;
+    stroke: #ccc;
+}
+
+.legend text {
+    fill: #777;
+    font: 10px sans-serif;
+    text-anchor: middle;
+}
