@@ -122,10 +122,25 @@
 .subunit.BA,
 .subunit.MK,
 .subunit.ME,
-.subunit.AL
+.subunit.AL,
+.subunit.KV,
+.subunit.TR,
+.subunit.RU,
+.subunit.UA,
+.subunit.DZ,
+.subunit.FO,
+.subunit.GE,
+.subunit.GL,
+.subunit.BY,
+.subunit.MD,
+.subunit.TN,
+.subunit.SY,
+.subunit.IQ,
+.subunit.NO
 {
     fill: rgba(143, 143, 143, 0.42);
 }
+
 
 .subunit-label {
     fill: #000000;
@@ -133,6 +148,29 @@
     font-size: 10px;
     font-weight: 300;
     text-anchor: middle;
+}
+
+.subunit-label.YF,
+.subunit-label.BA,
+.subunit-label.MK,
+.subunit-label.ME,
+.subunit-label.AL,
+.subunit-label.KV,
+.subunit-label.TR,
+.subunit-label.RU,
+.subunit-label.UA,
+.subunit-label.DZ,
+.subunit-label.FO,
+.subunit-label.GE,
+.subunit-label.GL,
+.subunit-label.BY,
+.subunit-label.MD,
+.subunit-label.TN,
+.subunit-label.SY,
+.subunit-label.IQ,
+.subunit-label.NO
+{
+    display: none;
 }
 
 
