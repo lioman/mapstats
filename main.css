@@ -140,7 +140,7 @@
 .bubble {
     fill-opacity: .6;
     stroke: #fff;
-    stroke-width: .5px;
+    stroke-width: 1px;
     fill: darkorange;
 }
 
@@ -149,8 +149,8 @@
 }
 
 .bubble circle:hover {
-    stroke: black;
-    stroke-width: .5px;
+    stroke: #240d4d;
+    stroke-width: 2px;
 }
 
 .legend circle {
