@@ -22,17 +22,20 @@ function drawMap(year) {
         .range([0, 30]);
 
     formatNumber = d3.format('>-,');
-    d3.json('build/eu.json', function (error, eu) {
+    d3.json('build/eu_pax.json', function (error, eu) {
         if (error) return console.error(error);
+        console.log('hier');
+        console.log(eu);
         euJson = eu;
 
+
         svg.append('path')
-            .datum(topojson.feature(eu, eu.objects.subunits))
+            .datum(topojson.feature(eu, eu.objects.countries))
             .attr('d', path);
 
         //add classes
         svg.selectAll('.subunit')
-            .data(topojson.feature(eu, eu.objects.subunits).features)
+            .data(topojson.feature(eu, eu.objects.countries).features)
             .enter().append('path')
             .attr('class', function (d) {
                 if (d.id !=-99){
@@ -43,7 +46,7 @@ function drawMap(year) {
 
         // Add Label
         svg.selectAll('.subunit-label')
-            .data(topojson.feature(eu, eu.objects.subunits).features)
+            .data(topojson.feature(eu, eu.objects.countries).features)
             .enter().append('text')
             .attr('class', function (d) {
                 if (d.id !=-99){
@@ -72,7 +75,7 @@ function drawBubbles(year) {
     svg.append('g')
         .attr('class', 'bubble')
         .selectAll('circle')
-        .data(topojson.feature(euJson, euJson.objects.subunits).features
+        .data(topojson.feature(euJson, euJson.objects.countries).features
             .sort(function (a, b) {
                 return b.properties[paxYear] - a.properties[paxYear];
             }))
