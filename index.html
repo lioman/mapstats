@@ -70,7 +70,7 @@
 
         <p class="label secondary round">Data Source: <a href="http://ec.europa.eu/eurostat">eurostat</a></p>
 
-        <p>Passengers carried are:
+        <h3>Passengers carried are:</h3>
         <ul>
             <li>all passengers on a particular flight (with one flight number) counted once only and not repeatedly on
                 each individual stage of that flight.
@@ -80,7 +80,7 @@
             </li>
             <li>Excludes direct transit passengers.</li>
         </ul>
-        </p>
+
     </div>
 
     <div class="column large-1 icon-bar large-vertical one-up">
@@ -112,11 +112,6 @@
 <script>
     $(document).ready(function () {
         $(document).foundation();
-        drawMap(2014);
-
-        $('[data-slider]').on('change.fndtn.slider', function (e) {
-            setYear(e);
-            return false;
-        });
+        drawMap();
     })
 </script>
