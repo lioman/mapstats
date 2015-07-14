@@ -1,4 +1,4 @@
-function drawMap(year) {
+function drawMap() {
     $('.map').empty();
 
     width = 650;
@@ -61,7 +61,7 @@ function drawMap(year) {
                 return d.properties.name;
             });
 
-        drawBubbles(year);
+        drawBubbles();
     });
 
 
