@@ -32,9 +32,11 @@
 
     <div class="panel column large-10">
 
+
         <div class="large-5 columns">
+
             <label><b>Select Year:</b>
-                <select  id="choosedYear" onchange="setYear(this);">
+                <select  id="choosedYear" onchange="drawBubbles();">
                     <option value="2014">2014</option>
                     <option value="2013">2013</option>
                     <option value="2012">2012</option>
@@ -49,6 +51,18 @@
                 </select>
             </label>
         </div>
+
+        <div class="large-3 columns">
+
+            <label><b>Select Type:</b>
+                <select  id="choosedType" onchange="drawBubbles();">
+                    <option value="pax">Passengers</option>
+                    <option value="goods">Goods</option>
+                </select>
+            </label>
+        </div>
+
+
 
         <div class="map" id="map"></div>
 
