@@ -71,14 +71,13 @@ function drawBubbles() {
 
     var year = $('#choosedYear').val(),
         type = $('#choosedType').val();
+    var zoomRange = [0, 300000000];
 
-    if (type === 'goods'){
-        var zoomRange = [0, 4300000 ];
-    } else {
-        var zoomRange = [0, 300000000];
+    if (type === 'goods') {
+        zoomRange = [0, 4300000];
     }
 
-     var radius = d3.scale.sqrt()
+    var radius = d3.scale.sqrt()
         .domain(zoomRange)
         .range([0, 30]);
 
@@ -114,7 +113,7 @@ function drawBubbles() {
         .attr('class', 'legend')
         .attr('transform', 'translate(' + (width - 50) + ',' + (height - 20) + ')')
         .selectAll('g')
-        .data([zoomRange[1]/10, zoomRange[1]/2, zoomRange[1]])
+        .data([zoomRange[1] / 10, zoomRange[1] / 2, zoomRange[1]])
         .enter().append('g');
 
     legend.append('circle')
