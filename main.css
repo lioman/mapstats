@@ -173,13 +173,18 @@
     display: none;
 }
 
-
-
 .bubble {
     fill-opacity: .6;
     stroke: #fff;
     stroke-width: 1px;
+}
+
+.bubble.pax {
     fill: darkorange;
+}
+
+.bubble.goods{
+    fill: #ff0087;
 }
 
 .bubbletext {
