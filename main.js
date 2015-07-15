@@ -22,8 +22,6 @@ function drawMap() {
 
     d3.json('build/eu_data.json', function (error, eu) {
         if (error) return console.error(error);
-        console.log('hier');
-        console.log(eu);
         euJson = eu;
 
 
@@ -70,7 +68,7 @@ function drawMap() {
 function drawBubbles() {
 
     var year = $('#choosedYear').val(),
-        type = $('#choosedType').val();
+        type = $( "input:checked" ).val();
     var zoomRange = [0, 300000000];
 
     if (type === 'goods') {
