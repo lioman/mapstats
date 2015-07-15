@@ -39,7 +39,7 @@
 <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">MapStats</span>
+            <span class="mdl-layout-title">Mapstats - Statistics on D3.js-maps</span>
 
             <div class="mdl-layout-spacer"></div>
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
@@ -71,9 +71,12 @@
 
             <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
                 <div class="map" id="map"></div>
-
-                <p class="label secondary round">Data Source: <a href="http://ec.europa.eu/eurostat">eurostat</a></p>
-
+                <div>
+                <a href="http://ec.europa.eu/eurostat" id="tt3" class="icon material-icons">assessment</a>
+                </div>
+                    <div class="mdl-tooltip" for="tt3">
+                    Data Source: eurostat
+                </div>
 
             </div>
             <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
@@ -104,11 +107,11 @@
                         <h3>View options</h3>
 
                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radioPax">
-                            <input onclick="drawBubbles();" id="radioPax" type="radio" class="mdl-radio__button" name="types" value="pax" checked />
+                            <input onclick="drawBubbles();" id="radioPax" type="radio" class="mdl-radio__button typeRadio" name="types" value="pax" checked />
                             <span class="mdl-radio__label">Passengers</span>
                         </label>
                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radioGoods">
-                            <input onclick="drawBubbles();" id="radioGoods" type="radio" class="mdl-radio__button" name="types" value="goods" />
+                            <input onclick="drawBubbles();" id="radioGoods" type="radio" class="mdl-radio__button typeRadio" name="types" value="goods" />
                             <span class="mdl-radio__label">Goods</span>
                         </label>
 
