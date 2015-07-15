@@ -68,7 +68,7 @@ function drawMap() {
 function drawBubbles() {
 
     var year = $('#choosedYear').val(),
-        type = $( "input:checked" ).val();
+        type = $( "input.typeRadio:checked" ).val();
     var zoomRange = [0, 300000000];
 
     if (type === 'goods') {
