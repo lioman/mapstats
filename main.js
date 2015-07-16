@@ -1,4 +1,8 @@
-explanation = [];
+/**
+ * Global Variables
+ */
+//Text that explains the selected data
+var explanation = [];
 explanation.goods = "<p> The indicator shows the volume of goods transported in Europe (in tonnes), broken down by country and by year.</p>" +
     "<p>The data covers the total volume of freight and mail loaded/unloaded.";
 explanation.pax = "<p>All passengers on a particular flight (with one flight number) counted once only and not repeatedly on each individual stage of that flight.</p>" +
@@ -6,40 +10,46 @@ explanation.pax = "<p>All passengers on a particular flight (with one flight num
     "and transfer passengers joining or leaving the flight at the reporting airport.</p>" +
     "<p>Direct transit passengers are excluded.</p>";
 
+//Map size
+var mapWidth = 650,
+    mapHeight = 600;
+
+//Projection config of the map
+var projection = d3.geo.mercator()
+    .center([9, 55])
+    .scale(460)
+    .translate([mapWidth / 2, mapHeight / 2]);
+
+//D3 Number format
+var formatNumber = d3.format('>-,');
+
+//D3 SVG path
+var path = d3.geo.path()
+    .projection(projection)
+    .pointRadius(2);
+
+// json object with map and statistical data
+var dataJson = {};
+
 function drawMap() {
     $('.map').empty();
 
-    width = 650;
-    height = 600;
-
-    projection = d3.geo.mercator()
-        .center([9, 55])
-        .scale(460)
-        .translate([width / 2, height / 2]);
-
-    path = d3.geo.path()
-        .projection(projection)
-        .pointRadius(2);
-
     svg = d3.select('.map').append('svg')
-        .attr('width', width)
-        .attr('height', height);
+        .attr('width', mapWidth)
+        .attr('height', mapHeight);
 
-
-    formatNumber = d3.format('>-,');
 
     d3.json('build/eu_data.json', function (error, eu) {
         if (error) return console.error(error);
-        euJson = eu;
-
+        dataJson = eu;
 
         svg.append('path')
-            .datum(topojson.feature(eu, eu.objects.countries))
+            .datum(topojson.feature(eu, dataJson.objects.countries))
             .attr('d', path);
 
         //add classes
         svg.selectAll('.subunit')
-            .data(topojson.feature(eu, eu.objects.countries).features)
+            .data(topojson.feature(eu, dataJson.objects.countries).features)
             .enter().append('path')
             .attr('class', function (d) {
                 if (d.id != -99) {
@@ -51,7 +61,7 @@ function drawMap() {
 
         // Add Label
         svg.selectAll('.subunit-label')
-            .data(topojson.feature(eu, eu.objects.countries).features)
+            .data(topojson.feature(eu, dataJson.objects.countries).features)
             .enter().append('text')
             .attr('class', function (d) {
                 if (d.id != -99) {
@@ -76,7 +86,7 @@ function drawMap() {
 function drawBubbles() {
 
     var year = $('#choosedYear').val(),
-        type = $( "input.typeRadio:checked" ).val();
+        type = $("input.typeRadio:checked").val();
     var zoomRange = [0, 300000000];
 
     if (type === 'goods') {
@@ -97,7 +107,7 @@ function drawBubbles() {
     svg.append('g')
         .attr('class', bubbleClass)
         .selectAll('circle')
-        .data(topojson.feature(euJson, euJson.objects.countries).features
+        .data(topojson.feature(dataJson, dataJson.objects.countries).features
             .sort(function (a, b) {
                 return b.properties[dataField] - a.properties[dataField];
             }))
@@ -106,6 +116,9 @@ function drawBubbles() {
             return 'translate(' + path.centroid(d) + ')';
         })
         .attr('r', function (d) {
+            if (isNaN(d.properties[dataField])){
+                return 0;
+            }
             return radius(d.properties[dataField]);
         })
         .append('title')
@@ -117,7 +130,7 @@ function drawBubbles() {
 
     var legend = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', 'translate(' + (width - 50) + ',' + (height - 20) + ')')
+        .attr('transform', 'translate(' + (mapWidth - 50) + ',' + (mapHeight - 20) + ')')
         .selectAll('g')
         .data([zoomRange[1] / 10, zoomRange[1] / 2, zoomRange[1]])
         .enter().append('g');
