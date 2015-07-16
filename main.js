@@ -1,3 +1,11 @@
+explanation = [];
+explanation.goods = "<p> The indicator shows the volume of goods transported in Europe (in tonnes), broken down by country and by year.</p>" +
+    "<p>The data covers the total volume of freight and mail loaded/unloaded.";
+explanation.pax = "<p>All passengers on a particular flight (with one flight number) counted once only and not repeatedly on each individual stage of that flight.</p>" +
+    "<p>They are all revenue and non-revenue passengers whose journey begins or terminates at the reporting airport " +
+    "and transfer passengers joining or leaving the flight at the reporting airport.</p>" +
+    "<p>Direct transit passengers are excluded.</p>";
+
 function drawMap() {
     $('.map').empty();
 
@@ -81,7 +89,7 @@ function drawBubbles() {
 
     $('.bubble').empty();
     $('.legend').empty();
-
+    $('#explanation').html(explanation[type])
     var bubbleClass = 'bubble ' + type;
 
     var dataField = type + year;

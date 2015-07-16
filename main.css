@@ -390,8 +390,11 @@ _:-ms-input-placeholder, :root .demo-graph {
 .demo-cards h3 {
     font-size: 1em;
 }
-.demo-updates .mdl-card__title {
+.explanation .mdl-card__title {
     min-height: 60px;
+}
+.explanation .mdl-card__supporting-text {
+    min-height: 250px;
 }
 .demo-cards .mdl-card__actions a {
     color: #00BCD4;
